@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.fall.mapper.MemberPOMapper" >
+  <resultMap id="BaseResultMap" type="org.fall.entity.po.MemberPO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="login_acct" property="loginAcct" jdbcType="VARCHAR" />
+    <result column="user_pswd" property="userPswd" jdbcType="CHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="authstaus" property="authstaus" jdbcType="INTEGER" />
+    <result column="user_type" property="userType" jdbcType="INTEGER" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="card_num" property="cardNum" jdbcType="VARCHAR" />
+    <result column="acct_type" property="acctType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, login_acct, user_pswd, user_name, email, authstaus, user_type, real_name, card_num, 
+    acct_type
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.fall.entity.po.MemberPOExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_member
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.fall.entity.po.MemberPOExample" >
+    delete from t_member
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.fall.entity.po.MemberPO" >
+    insert into t_member (id, login_acct, user_pswd, 
+      user_name, email, authstaus, 
+      user_type, real_name, card_num, 
+      acct_type)
+    values (#{id,jdbcType=INTEGER}, #{loginAcct,jdbcType=VARCHAR}, #{userPswd,jdbcType=CHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{authstaus,jdbcType=INTEGER}, 
+      #{userType,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, #{cardNum,jdbcType=VARCHAR}, 
+      #{acctType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.fall.entity.po.MemberPO" >
+    insert into t_member
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="loginAcct != null" >
+        login_acct,
+      </if>
+      <if test="userPswd != null" >
+        user_pswd,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="authstaus != null" >
+        authstaus,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="cardNum != null" >
+        card_num,
+      </if>
+      <if test="acctType != null" >
+        acct_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="loginAcct != null" >
+        #{loginAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="userPswd != null" >
+        #{userPswd,jdbcType=CHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="authstaus != null" >
+        #{authstaus,jdbcType=INTEGER},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null" >
+        #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null" >
+        #{acctType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.fall.entity.po.MemberPOExample" resultType="java.lang.Integer" >
+    select count(*) from t_member
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_member
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.loginAcct != null" >
+        login_acct = #{record.loginAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPswd != null" >
+        user_pswd = #{record.userPswd,jdbcType=CHAR},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authstaus != null" >
+        authstaus = #{record.authstaus,jdbcType=INTEGER},
+      </if>
+      <if test="record.userType != null" >
+        user_type = #{record.userType,jdbcType=INTEGER},
+      </if>
+      <if test="record.realName != null" >
+        real_name = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardNum != null" >
+        card_num = #{record.cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acctType != null" >
+        acct_type = #{record.acctType,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_member
+    set id = #{record.id,jdbcType=INTEGER},
+      login_acct = #{record.loginAcct,jdbcType=VARCHAR},
+      user_pswd = #{record.userPswd,jdbcType=CHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      authstaus = #{record.authstaus,jdbcType=INTEGER},
+      user_type = #{record.userType,jdbcType=INTEGER},
+      real_name = #{record.realName,jdbcType=VARCHAR},
+      card_num = #{record.cardNum,jdbcType=VARCHAR},
+      acct_type = #{record.acctType,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.fall.entity.po.MemberPO" >
+    update t_member
+    <set >
+      <if test="loginAcct != null" >
+        login_acct = #{loginAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="userPswd != null" >
+        user_pswd = #{userPswd,jdbcType=CHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="authstaus != null" >
+        authstaus = #{authstaus,jdbcType=INTEGER},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null" >
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null" >
+        acct_type = #{acctType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.fall.entity.po.MemberPO" >
+    update t_member
+    set login_acct = #{loginAcct,jdbcType=VARCHAR},
+      user_pswd = #{userPswd,jdbcType=CHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      authstaus = #{authstaus,jdbcType=INTEGER},
+      user_type = #{userType,jdbcType=INTEGER},
+      real_name = #{realName,jdbcType=VARCHAR},
+      card_num = #{cardNum,jdbcType=VARCHAR},
+      acct_type = #{acctType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

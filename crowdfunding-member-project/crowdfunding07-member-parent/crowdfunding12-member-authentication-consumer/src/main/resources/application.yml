@@ -1,0 +1,33 @@
+server:
+  port: 4000
+spring:
+  application:
+    name: crowd-auth
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  redis:
+    host: 192.168.0.101
+  session:
+    store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+
+short:
+  message:
+    host: http://smsmsgs.market.alicloudapi.com
+    path: /smsmsgs
+    appCode: d0c8d0bf07ce4fc8ac0086f0a8
+    sign: 1
+    skin: 2
+
+# 由于项目刚启动第一次进行redis操作时会比较慢，可能被ribbon认为是超时报错，因此通过下面的配置延长ribbon超时的时间
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+
+
+

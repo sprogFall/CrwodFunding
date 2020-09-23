@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "name": "ali.pay",
+      "type": "org.fall.config.PayProperties",
+      "sourceType": "org.fall.config.PayProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ali.pay.ali-pay-public-key",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    },
+    {
+      "name": "ali.pay.app-id",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    },
+    {
+      "name": "ali.pay.charset",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    },
+    {
+      "name": "ali.pay.gateway-url",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    },
+    {
+      "name": "ali.pay.merchant-private-key",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    },
+    {
+      "name": "ali.pay.notify-url",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    },
+    {
+      "name": "ali.pay.return-url",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    },
+    {
+      "name": "ali.pay.sign-type",
+      "type": "java.lang.String",
+      "sourceType": "org.fall.config.PayProperties"
+    }
+  ],
+  "hints": []
+}

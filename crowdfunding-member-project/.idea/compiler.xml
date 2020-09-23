@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crowdfunding17-member-api" />
+        <module name="crowdfunding15-member-pay-consumer" />
+        <module name="crowdfunding05-common-util" />
+        <module name="crowdfunding13-member-project-consumer" />
+        <module name="crowdfunding12-member-authentication-consumer" />
+        <module name="crowdfunding10-member-mysql-provider" />
+        <module name="crowdfunding11-member-redis-provider" />
+        <module name="crowdfunding09-member-entity" />
+        <module name="crowdfunding14-member-order-consumer" />
+        <module name="crowdfunding16-member-zuul" />
+        <module name="crowdfunding08-member-eureka" />
+        <module name="crowdfunding06-common-reverse" />
+        <module name="spring-session-b" />
+        <module name="spring-session-a" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="crowdfunding05-common-util" target="1.8" />
+      <module name="crowdfunding06-common-reverse" target="1.8" />
+      <module name="crowdfunding07-member-parent" target="1.8" />
+      <module name="crowdfunding08-member-eureka" target="1.8" />
+      <module name="crowdfunding09-member-entity" target="1.8" />
+      <module name="crowdfunding10-member-mysql-provider" target="1.8" />
+      <module name="crowdfunding11-member-redis-provider" target="1.8" />
+      <module name="crowdfunding12-member-authentication-consumer" target="1.8" />
+      <module name="crowdfunding13-member-project-consumer" target="1.8" />
+      <module name="crowdfunding14-member-order-consumer" target="1.8" />
+      <module name="crowdfunding15-member-pay-consumer" target="1.8" />
+      <module name="crowdfunding16-member-zuul" target="1.8" />
+      <module name="crowdfunding17-member-api" target="1.8" />
+      <module name="spring-session-a" target="1.8" />
+      <module name="spring-session-b" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.fall</groupId>
+    <artifactId>crowdfunding07-member-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>crowdfunding08-member-eureka</module>
+        <module>crowdfunding09-member-entity</module>
+        <module>crowdfunding10-member-mysql-provider</module>
+        <module>crowdfunding11-member-redis-provider</module>
+        <module>crowdfunding12-member-authentication-consumer</module>
+        <module>crowdfunding13-member-project-consumer</module>
+        <module>crowdfunding14-member-order-consumer</module>
+        <module>crowdfunding15-member-pay-consumer</module>
+        <module>crowdfunding16-member-zuul</module>
+        <module>crowdfunding17-member-api</module>
+        <module>../../spring-session-test/crowdfunding07-member-parent/spring-session-a</module>
+        <module>../../spring-session-test/crowdfunding07-member-parent/spring-session-b</module>
+    </modules>
+
+    <!-- 在parent工程进行依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 导入SpringCloud需要的依赖信息 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- SpringBoot依赖信息 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.3.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--SpringBoot整合MyBatis的依赖-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>2.1.3</version>
+            </dependency>
+
+            <!--druid依赖信息-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.1.17</version>
+            </dependency>
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

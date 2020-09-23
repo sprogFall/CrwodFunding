@@ -1,0 +1,24 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: crowd-project
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  redis:
+    host: 192.168.0.101
+  session:
+    store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+
+aliyun:
+  oss:
+    access-key-id: LTAI4G9FJwsJnmy9GEHLWziB
+    access-key-secret: tNUUkzf3pPEWmlY4aLsmuKSaW7skl4
+    bucket-domain: http://fall2020.oss-cn-hangzhou.aliyuncs.com
+    bucket-name: fall2020
+    end-point: oss-cn-hangzhou.aliyuncs.com
